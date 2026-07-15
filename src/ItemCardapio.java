@@ -8,18 +8,14 @@ class ItemCardapio {
     double preco;
     double precoComDesconto;
     CategoriaCardapio categoria;
-    double taxaImposto = 10.00;
-    boolean isento;
 
     //construtor
-    ItemCardapio(long id, String nome, String descricao, double preco, CategoriaCardapio categoria, boolean isento, double taxaImposto) {
+    ItemCardapio(long id, String nome, String descricao, double preco, CategoriaCardapio categoria) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
         this.preco = preco;
         this.categoria = categoria;
-        this.isento = isento;
-        this.taxaImposto = taxaImposto;
     }
 
     //metodos
@@ -34,6 +30,19 @@ class ItemCardapio {
     void definePromocao(double precoComDesconto) {
         emPromocao = true;
         this.precoComDesconto = precoComDesconto;
+    }
+
+    double calculaImposto () {
+        double imposto;
+
+        if (emPromocao) {
+            imposto = precoComDesconto * 0.10;
+        } else {
+            imposto = preco * 0.10;
+        }
+
+        return imposto;
+
     }
 
 }

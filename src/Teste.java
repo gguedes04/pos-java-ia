@@ -22,6 +22,8 @@ void main() {
     }
     IO.println("Categoria: " + itemSelecionado.obtemNomeCategoria());
 
+    IO.println("Imposto:" + itemSelecionado.calculaImposto());
+
     IO.println("-------");
 
     IO.println("Soma dos preços: " + cardapio.obtemSomaDosPrecos());
